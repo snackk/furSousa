@@ -1,14 +1,19 @@
 <div>
   <h2 id="page-heading" data-cy="RandomSayingHeading">
-    <span>Random Sayings</span>
+    <span>Merdas à toa que o Sousa diz</span>
+
+    <div class="alert alert-warning">
+      <span>Btw, esta API podia ser um bot de slack ;)</span>
+    </div>
 
     <div class="d-flex justify-content-end">
       <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-        <span>Refresh list</span>
+        <span>Reload (próxima merda parva)</span>
       </button>
 
       <button
+        *jhiHasAnyAuthority="'ROLE_ADMIN'"
         id="jh-create-entity"
         data-cy="entityCreateButton"
         class="btn btn-primary jh-create-entity create-random-saying"

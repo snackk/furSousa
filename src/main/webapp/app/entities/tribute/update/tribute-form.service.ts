@@ -33,7 +33,6 @@ type TributeFormGroupContent = {
   id: FormControl<TributeFormRawValue['id'] | NewTribute['id']>;
   content: FormControl<TributeFormRawValue['content']>;
   creationDate: FormControl<TributeFormRawValue['creationDate']>;
-  user: FormControl<TributeFormRawValue['user']>;
 };
 
 export type TributeFormGroup = FormGroup<TributeFormGroupContent>;
@@ -57,7 +56,6 @@ export class TributeFormService {
         validators: [Validators.required, Validators.minLength(3)],
       }),
       creationDate: new FormControl(tributeRawValue.creationDate),
-      user: new FormControl(tributeRawValue.user),
     });
   }
 

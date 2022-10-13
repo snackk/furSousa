@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center">
   <div class="col-8">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h2 id="jhi-tribute-heading" data-cy="TributeCreateUpdateHeading">Create or edit a Tribute</h2>
+      <h2 id="jhi-tribute-heading" data-cy="TributeCreateUpdateHeading">Tenta ser simpático ok? O Sousa já é idoso</h2>
 
       <div>
         <jhi-alert-error></jhi-alert-error>
@@ -37,13 +37,13 @@
           </div>
         </div>
 
-        <div class="row mb-3">
+        <!--        <div class="row mb-3">
           <label class="form-label" for="field_user">User</label>
           <select class="form-control" id="field_user" data-cy="user" name="user" formControlName="user" [compareWith]="compareUser">
             <option [ngValue]="null"></option>
             <option [ngValue]="userOption" *ngFor="let userOption of usersSharedCollection">{{ userOption.login }}</option>
           </select>
-        </div>
+        </div>-->
       </div>
 
       <div>

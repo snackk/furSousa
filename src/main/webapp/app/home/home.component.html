@@ -4,23 +4,16 @@
   </div>
 
   <div class="col-md-9">
-    <h1 class="display-4"><span>Welcome, Java Hipster!</span> (Fur Sousa)</h1>
+    <h1 class="display-4"><span>SOUSA ÉS GRANDE</span></h1>
 
-    <p class="lead">This is your homepage</p>
+    <p class="lead">Deixem aí uma coisinha fofa para o Sousa recordar, ou então, vejam só a secção de merdas à toa que o Sousa diz :)</p>
 
     <div [ngSwitch]="account !== null">
       <div class="alert alert-success" *ngSwitchCase="true">
         <span id="home-logged-message" *ngIf="account">You are logged in as user "{{ account.login }}".</span>
       </div>
 
-      <div class="alert alert-warning" *ngSwitchCase="false">
-        <span>If you want to </span>
-        <a class="alert-link" (click)="login()">sign in</a
-        ><span
-          >, you can try the default accounts:<br />- Administrator (login="admin" and password="admin") <br />- User (login="user" and
-          password="user").</span
-        >
-      </div>
+      <div class="alert alert-warning" *ngSwitchCase="false"><a class="alert-link" (click)="login()">Sign In</a><span></span></div>
 
       <div class="alert alert-warning" *ngSwitchCase="false">
         <span>You don't have an account yet?</span>&nbsp;
@@ -28,27 +21,11 @@
       </div>
     </div>
 
-    <p>If you have any question on JHipster:</p>
-
-    <ul>
-      <li><a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer">JHipster homepage</a></li>
-      <li>
-        <a href="https://stackoverflow.com/tags/jhipster/info" target="_blank" rel="noopener noreferrer">JHipster on Stack Overflow</a>
-      </li>
-      <li>
-        <a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" rel="noopener noreferrer"
-          >JHipster bug tracker</a
-        >
-      </li>
-      <li>
-        <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">JHipster public chat room</a>
-      </li>
-      <li><a href="https://twitter.com/jhipster" target="_blank" rel="noopener noreferrer">follow @jhipster on Twitter</a></li>
-    </ul>
+    <p>Aceito doações em barras de ouro.</p>
 
     <p>
-      <span>If you like JHipster, don't forget to give us a star on</span>
-      <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">GitHub</a>!
+      <span>Já agora, tá ai o repo do projecto </span>
+      <a href="https://github.com/snackk/furSousa" target="_blank" rel="noopener noreferrer">GitHub</a>
     </p>
   </div>
 </div>

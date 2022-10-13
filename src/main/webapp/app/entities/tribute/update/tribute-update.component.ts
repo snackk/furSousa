@@ -4,11 +4,13 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize, map } from 'rxjs/operators';
 
-import { TributeFormService, TributeFormGroup } from './tribute-form.service';
+import { TributeFormGroup, TributeFormService } from './tribute-form.service';
 import { ITribute } from '../tribute.model';
 import { TributeService } from '../service/tribute.service';
 import { IUser } from 'app/entities/user/user.model';
 import { UserService } from 'app/entities/user/user.service';
+import { AccountService } from '../../../core/auth/account.service';
+import { Account } from '../../../core/auth/account.model';
 
 @Component({
   selector: 'jhi-tribute-update',
@@ -17,6 +19,7 @@ import { UserService } from 'app/entities/user/user.service';
 export class TributeUpdateComponent implements OnInit {
   isSaving = false;
   tribute: ITribute | null = null;
+  account: Account | null = null;
 
   usersSharedCollection: IUser[] = [];
 
@@ -26,7 +29,8 @@ export class TributeUpdateComponent implements OnInit {
     protected tributeService: TributeService,
     protected tributeFormService: TributeFormService,
     protected userService: UserService,
-    protected activatedRoute: ActivatedRoute
+    protected activatedRoute: ActivatedRoute,
+    private accountService: AccountService
   ) {}
 
   compareUser = (o1: IUser | null, o2: IUser | null): boolean => this.userService.compareUser(o1, o2);
@@ -40,6 +44,9 @@ export class TributeUpdateComponent implements OnInit {
 
       this.loadRelationshipsOptions();
     });
+    this.accountService.getAuthenticationState().subscribe(account => {
+      this.account = account;
+    });
   }
 
   previousState(): void {
@@ -49,6 +56,7 @@ export class TributeUpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const tribute = this.tributeFormService.getTribute(this.editForm);
+    tribute.user = this.usersSharedCollection.filter(t => t.login == this.account?.login).pop();
     if (tribute.id !== null) {
       this.subscribeToSaveResponse(this.tributeService.update(tribute));
     } else {

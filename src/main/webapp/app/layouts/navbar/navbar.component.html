@@ -3,7 +3,7 @@
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
       <span class="logo-img"></span>
       <span class="navbar-title">FurSousa</span>
-      <span class="navbar-version">{{ version }}</span>
+      <span class="navbar-version">{{ version }} <-- nem sequer release é, os bugs neste caso são features!</span>
     </a>
     <a
       class="navbar-toggler d-lg-none"
@@ -39,7 +39,7 @@
           <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu" data-cy="entity">
             <span>
               <fa-icon icon="th-list"></fa-icon>
-              <span>Entities</span>
+              <span>Cena MAIS fixe WOW</span>
             </span>
           </a>
           <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
@@ -52,7 +52,7 @@
                 (click)="collapseNavbar()"
               >
                 <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                <span>Tribute</span>
+                <span>Escreve uma cena simpática ao Sousa</span>
               </a>
             </li>
             <li>
@@ -64,7 +64,7 @@
                 (click)="collapseNavbar()"
               >
                 <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                <span>Random Saying</span>
+                <span>Merdas à toa que o Sousa diz</span>
               </a>
             </li>
             <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
