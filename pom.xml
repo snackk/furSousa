@@ -577,7 +577,7 @@
                             </platforms>
                         </from>
                         <to>
-                            <image>fursousa:latest</image>
+                            <image>snackk/fursousa:latest</image>
                         </to>
                         <container>
                             <entrypoint>
