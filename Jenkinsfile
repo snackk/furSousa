@@ -9,8 +9,13 @@ node {
         checkout scm
     }
 
-    stage('dockerhub') {
-        sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
+    stage('Getting Database Credentials') {
+        withCredentials([usernamePassword(credentialsId: 'snackk_docker', passwordVariable: 'dockerhub_pwd', usernameVariable: 'dockerhub_usr')])
+                {
+                    creds = "\nUsername: ${dockerhub_pwd}\nPassword: ${dockerhub_usr}\n"
+                }
+        println creds
+        sh "echo $dockerhub_pwd | docker login -u $dockerhub_usr --password-stdin"
     }
 
     stage('check java') {
@@ -42,7 +47,6 @@ node {
     stage('publish docker') {
         // A pre-requisite to this step is to setup authentication to the docker registry
         // https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#authentication-methods
-        sh "echo $snackk_docker_PSW | docker login -u $snackk_docker_USR --password-stdin"
         sh "./mvnw -ntp -Pprod jib:build"
     }
 }
