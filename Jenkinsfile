@@ -12,10 +12,11 @@ node {
     stage('Getting Database Credentials') {
         withCredentials([usernamePassword(credentialsId: 'snackk_docker', passwordVariable: 'dockerhub_pwd', usernameVariable: 'dockerhub_usr')])
                 {
+                    sh "echo ${dockerhub_pwd} | docker login -u ${dockerhub_usr} --password-stdin"
                     creds = "\nUsername: ${dockerhub_pwd}\nPassword: ${dockerhub_usr}\n"
                 }
         println creds
-        sh "echo ${dockerhub_pwd} | docker login -u ${dockerhub_usr} --password-stdin"
+
     }
 
     stage('check java') {
