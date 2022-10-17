@@ -5,12 +5,12 @@ node {
         DOCKERHUB_CREDENTIALS=credentials('snackk_docker')
     }
 
-    stage('dockerhub') {
-        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-    }
-
     stage('checkout') {
         checkout scm
+    }
+
+    stage('dockerhub') {
+        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
     }
 
     stage('check java') {
