@@ -1,22 +1,16 @@
 #!/usr/bin/env groovy
 
 node {
-    environment {
-        DOCKERHUB_CREDENTIALS=credentials('snackk_docker')
-    }
 
     stage('checkout') {
         checkout scm
     }
 
-    stage('Getting Database Credentials') {
+    stage('docker hub') {
         withCredentials([usernamePassword(credentialsId: 'snackk_docker', passwordVariable: 'dockerhub_pwd', usernameVariable: 'dockerhub_usr')])
-                {
-                    sh "echo ${dockerhub_pwd} | docker login -u ${dockerhub_usr} --password-stdin"
-                    creds = "\nUsername: ${dockerhub_pwd}\nPassword: ${dockerhub_usr}\n"
-                }
-        println creds
-
+            {
+                sh "echo ${dockerhub_pwd} | docker login -u ${dockerhub_usr} --password-stdin"
+            }
     }
 
     stage('check java') {

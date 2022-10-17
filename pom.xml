@@ -7,7 +7,7 @@
 
     <groupId>com.fur.sousa</groupId>
     <artifactId>fur-sousa</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Fur Sousa</name>
     <description>Description for furSousa</description>
@@ -578,6 +578,7 @@
                         </from>
                         <to>
                             <image>snackk/fursousa:latest</image>
+                            <image>snackk/fursousa:${project.version}</image>
                         </to>
                         <container>
                             <entrypoint>
